@@ -34,7 +34,7 @@ public class Sisop13gen2026Ippoliti {
          System.out.print("Inserire intervallo massimo rispetto al tempo minimo = ");
          int TT = input.nextInt();
          input.close();
-         //int count = 0;           perché non serve (specificare)     
+         int count = 0;
          
          //creazione oggetti
          Queue q = new Queue(L, M);
@@ -82,10 +82,11 @@ public class Sisop13gen2026Ippoliti {
          p1.join();
          p2.join();
          
-         //risultati finali programma
+         count = p1.getCount() + p2.getCount();
          
+         //risultati finali programma        
          System.out.println("Il numero di valori ancora in coda è " + q.size());
-         System.out.println("Numero di array stampati: " + u.size());    
+         System.out.println("Numero di array stampati: " + count);    
     }
     
     
@@ -277,6 +278,10 @@ public class Sisop13gen2026Ippoliti {
             
             //numeri prodotti dal pt in questione
             System.out.println("PrintThread n° " + id + " ha stampato: " + count + " valori");
+        }
+        
+        public int getCount() {
+            return count;
         }
     }
     
